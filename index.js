@@ -34,7 +34,7 @@ const userSchem= new mongoose.Schema({
   place : String,
   password: Number
 })
-const usern= mongoose.model("User",userSchem);
+const usern= mongoose.model("users",userSchem);
 
 app.post("/login", async(req,res)=>{
     const {username,password}=req.body;
@@ -58,7 +58,7 @@ app.get("/all", async (req, res) => {
     res.status(200).json(data);
   } catch (err) {
     console.error("Error fetching data:", err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: err});
   }
 });
 
